@@ -8,7 +8,6 @@ export class QuotesService {
     constructor() {
         this.http = require('https');
         this.options = {
-            method: 'GET',
             hostname: 'br.dolarapi.com',
         };
     }

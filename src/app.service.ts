@@ -6,7 +6,6 @@ export class AppService {
 
   constructor(private readonly quotesService: QuotesService) { }
 
-
   getQuotes(): any {
     return this.quotesService.list();
   }

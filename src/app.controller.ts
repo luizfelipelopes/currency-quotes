@@ -1,7 +1,8 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Controller, Get, Param, Query, Req } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+
+@Controller('/quotes')
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
@@ -10,28 +11,10 @@ export class AppController {
     return this.appService.getQuotes();
   }
 
-  @Get('/usd')
-  getQuoteDollar() {
-    return this.appService.getQuoteCurrency('usd');
+  @Get('/conversion')
+  getQuoteConversion(@Query() param: any) {
+    const currency = param.currency;
+    return this.appService.getQuoteCurrency(currency);
   }
 
-  @Get('/eur')
-  getQuoteEuro() {
-    return this.appService.getQuoteCurrency('eur');
-  }
-
-  @Get('/ars')
-  getQuoteArs() {
-    return this.appService.getQuoteCurrency('ars');
-  }
-
-  @Get('/clp')
-  getQuotesClp() {
-    return this.appService.getQuoteCurrency('clp');
-  }
-
-  @Get('uyu')
-  getQuotesUyu() {
-    return this.appService.getQuoteCurrency('uyu');
-  }
 }
