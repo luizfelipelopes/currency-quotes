@@ -3,10 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { QuotesService } from './quotes/quotes.service';
 import { ConversionService } from './conversion/conversion.service';
+import { ConversionController } from './conversion/conversion.controller';
 
 @Module({
   imports: [],
-  controllers: [AppController],
+  controllers: [AppController, ConversionController],
   providers: [AppService, QuotesService, ConversionService],
 })
 export class AppModule { }
