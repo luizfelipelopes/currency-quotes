@@ -8,7 +8,7 @@ export class QuotesService {
     constructor() {
         this.http = require('https');
         this.options = {
-            hostname: 'br.dolarapi.com',
+            hostname: process.env.BASE_URL,
         };
     }
 
